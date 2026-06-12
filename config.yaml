@@ -1,0 +1,22 @@
+project:
+  name: "Medical Treatment Protocol RAG Assistant"
+  version: "1.0.0"
+
+models:
+  llm: "gemini-2.5-flash"
+  embedding: "text-embedding-004"
+
+chunking:
+  size: 500
+  overlap: 50
+
+expert_system:
+  thresholds:
+    high_confidence: 0.80
+    medium_confidence: 0.50
+  
+paths:
+  dataset: "data/medical_protocols.json"
+  rules: "config/expert_rules.json"
+  db_dir: "data/chroma_db"
+  logs: "logs/app.log"

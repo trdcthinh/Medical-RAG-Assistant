@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "disease": "Sốt xuất huyết Dengue",
+    "symptoms": "Sốt cao đột ngột, liên tục từ 2-7 ngày. Nhức đầu, chán ăn, buồn nôn. Da sung huyết, chấm xuất huyết dưới da, chảy máu chân răng hoặc chảy máu cam.",
+    "treatment": "1) Hạ sốt bằng Paracetamol liều 10-15mg/kg/lần, cách mỗi 4-6 giờ. Tuyệt đối KHÔNG dùng Aspirin, Ibuprofen vì gây xuất huyết nặng hơn. 2) Bù nước bằng đường uống Oresol, nước trái cây (dừa, cam). 3) Theo dõi các dấu hiệu cảnh báo lâm sàng.",
+    "warning_signs": "Đau bụng nhiều, nôn ói liên tục, chảy máu niêm mạc, gan to, lừ đừ, mệt lả."
+  },
+  {
+    "id": 2,
+    "disease": "Tăng huyết áp",
+    "symptoms": "Đau đầu (đặc biệt vùng chẩm), chóng mặt, hoa mắt, ù tai, hồi hộp, đánh trống ngực. Đôi khi không có triệu chứng rõ ràng.",
+    "treatment": "1) Điều chỉnh lối sống: Giảm muối (< 5g/ngày), tăng cường rau xanh, hạn chế rượu bia, tập thể dục ít nhất 30 phút/ngày. 2) Dùng thuốc theo chỉ định của bác sĩ: Thuốc chẹn kênh calci (như Amlodipine), thuốc ức chế men chuyển (như Enalapril), hoặc thuốc lợi tiểu.",
+    "warning_signs": "Huyết áp tâm thu >= 180 mmHg hoặc tâm trương >= 120 mmHg kèm theo đau ngực, khó thở, nhìn mờ, yếu liệt nửa người."
+  },
+  {
+    "id": 3,
+    "disease": "Cúm A",
+    "symptoms": "Sốt cao trên 38 độ C, đau họng, ho khan, nhức mỏi toàn thân, nhức đầu, mệt mỏi kéo dài. Nghẹt mũi, chảy nước mũi.",
+    "treatment": "1) Nghỉ ngơi tại nơi thông thoáng, uống nhiều nước ấm. 2) Điều trị triệu chứng: Hạ sốt bằng Paracetamol, dùng thuốc ho thảo dược, rửa mũi bằng nước muối sinh lý. 3) Dùng thuốc kháng virus Oseltamivir (Tamiflu) trong vòng 48 giờ đầu chỉ khi có chỉ định của bác sĩ đối với ca có nguy cơ biến chứng nặng.",
+    "warning_signs": "Khó thở, thở nhanh, tức ngực, tím tái đầu chi, sốt cao liên tục không đáp ứng với thuốc hạ sốt thông thường."
+  }
+]

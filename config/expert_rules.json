@@ -1,0 +1,55 @@
+{
+  "confidence_thresholds": {
+    "high": 0.80,
+    "medium": 0.50
+  },
+  "emergency_keywords": [
+    "cấp cứu", "nguy kịch", "khó thở", "tím tái", "co giật", "đau ngực dữ dội", "hôn mê", "ngất xỉu"
+  ],
+  "rules": [
+    {
+      "rule_id": "RULE_EMERGENCY_ALARM",
+      "description": "Nếu phát hiện dấu hiệu cảnh báo khẩn cấp đe dọa tính mạng, yêu cầu liên hệ y tế khẩn cấp ngay lập tức.",
+      "conditions": {
+        "has_emergency_keywords": true
+      },
+      "actions": {
+        "route_to": "EMERGENCY_WARNING",
+        "explanation": "LUẬT KHẨN CẤP: Dữ liệu chứa từ khóa đe dọa tính mạng. Hệ chuyên gia kích hoạt quy trình cảnh báo khẩn cấp, bỏ qua phản hồi tự động của LLM."
+      }
+    },
+    {
+      "rule_id": "RULE_HIGH_CONFIDENCE",
+      "description": "Nếu tìm thấy phác đồ điều trị khớp trên 80% từ CSDL, trả lời trực tiếp kết hợp LLM sinh văn bản.",
+      "conditions": {
+        "max_similarity_gte": 0.80
+      },
+      "actions": {
+        "route_to": "RAG_DIRECT",
+        "explanation": "LUẬT ĐỘ TIN CẬY CAO: Phác đồ tương ứng được xác định rõ ràng trong CSDL lâm sàng."
+      }
+    },
+    {
+      "rule_id": "RULE_MEDIUM_CONFIDENCE",
+      "description": "Nếu độ tương đồng từ 50% đến 80%, hiển thị câu hỏi xác nhận bệnh để đảm bảo an toàn.",
+      "conditions": {
+        "max_similarity_between": [0.50, 0.80]
+      },
+      "actions": {
+        "route_to": "RAG_CONFIRMATION",
+        "explanation": "LUẬT ĐỘ TIN CẬY VỪA PHẢI: Tìm thấy phác đồ gần giống nhưng cần bác sĩ xác nhận lại tên bệnh trước khi cung cấp hướng dẫn."
+      }
+    },
+    {
+      "rule_id": "RULE_LOW_CONFIDENCE",
+      "description": "Nếu không tìm thấy phác đồ tương thích, kích hoạt Human-in-the-loop để bác sĩ trưởng khoa cập nhật.",
+      "conditions": {
+        "max_similarity_lt": 0.50
+      },
+      "actions": {
+        "route_to": "HUMAN_IN_THE_LOOP",
+        "explanation": "LUẬT ĐỘ TIN CẬY THẤP: Tri thức điều trị chưa được số hóa. Kích hoạt luồng nhờ chuyên gia y tế thẩm định và cập nhật."
+      }
+    }
+  ]
+}
