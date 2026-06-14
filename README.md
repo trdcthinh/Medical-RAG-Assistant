@@ -94,61 +94,51 @@ python main.py
 Dưới đây là các vị trí chèn hình ảnh minh chứng chạy thử thực tế các chức năng của hệ thống Chatbot trợ lý y học để đưa vào báo cáo:
 
 ### 📸 Hình 1: Khởi động hệ thống và Lập chỉ mục lần đầu (main.py)
-*Hướng dẫn:* Lưu ảnh màn hình khởi động CSDL Vector ChromaDB với 30 chunks.
 ![Khởi động và lập chỉ mục CSDL Vector](reports/images/demo_1.png)
 
 ---
 
 ### 📸 Hình 2: Phản hồi RAG trực tiếp khi khớp phác đồ (main.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi triệu chứng sốt xuất huyết, khớp bệnh Sốt xuất huyết Dengue có điểm số 0.55.
 ![Luồng RAG trực tiếp độ tin cậy cao](reports/images/demo_2.png)
 
 ---
 
 ### 📸 Hình 3: So khớp tương đồng trung bình (main.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi bị sốt nổi mẩn đỏ, tự động khớp phác đồ Sốt rét có điểm số 0.33.
 ![So khớp tương đồng trung bình](reports/images/demo_3.png)
 
 ---
 
 ### 📸 Hình 4: Bộ lọc an toàn - Luật Cảnh báo Khẩn cấp 1 (main.py)
-*Hướng dẫn:* Lưu ảnh câu hỏi nguy kịch "Tôi bị co giật và khó thở", kích hoạt cảnh báo cấp cứu 115.
 ![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 1](reports/images/demo_4.png)
 
 ---
 
 ### 📸 Hình 5: Bộ lọc an toàn - Luật Cảnh báo Khẩn cấp 2 (main.py)
-*Hướng dẫn:* Lưu ảnh câu hỏi khẩn cấp để kiểm chứng độ nhạy và thời gian phản hồi của hệ chuyên gia.
 ![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 2](reports/images/demo_5.png)
 
 ---
 
 ### 📸 Hình 6: Bánh đà dữ liệu & Tự học bệnh lý mới (main.py)
-*Hướng dẫn:* Lưu ảnh quy trình nạp bệnh mới Thủy đậu và hỏi lại thành công trong cùng một phiên làm việc.
 ![Bánh đà dữ liệu cập nhật động tri thức main.py](reports/images/demo_6.png)
 
 ---
 
 ### 📸 Hình 7: Chatbot QA - Khớp câu hỏi Đau răng (src/app.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi về đau răng có mủ dưới lợi đạt điểm tương đồng TF-IDF 0.8062.
 ![Khớp câu hỏi đau răng app.py](reports/images/demo_7.png)
 
 ---
 
 ### 📸 Hình 8: Chatbot QA - Khớp câu hỏi Mụn cuống lưỡi (src/app.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi về bị mụn ở cuống lưỡi đạt điểm tương đồng TF-IDF 0.8693.
 ![Khớp câu hỏi mụn cuống lưỡi app.py](reports/images/demo_8.png)
 
 ---
 
 ### 📸 Hình 9: Chatbot QA - Khớp câu hỏi Phòng tránh cận thị (src/app.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi về phòng tránh cận thị học đường đạt điểm tương đồng TF-IDF 0.6210.
 ![Khớp câu hỏi phòng tránh cận thị app.py](reports/images/demo_9.png)
 
 ---
 
 ### 📸 Hình 10: Chatbot QA - Bánh đà dữ liệu sơ cứu bỏng bô (src/app.py)
-*Hướng dẫn:* Lưu ảnh quy trình nạp tri thức sơ cứu bỏng bô xe máy, tự cập nhật dataset.json và hỏi lại đạt điểm 1.0000.
 ![Bánh đà dữ liệu tự học app.py](reports/images/demo_10.png)
 
 ---
