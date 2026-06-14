@@ -107,13 +107,25 @@ graph LR
 ## VI. Đánh giá và Định hướng phát triển
 
 ### 1. Ưu điểm
-*   Kiến trúc kết hợp Hệ chuyên gia và RAG giúp kiểm soát được đầu ra của mô hình ngôn ngữ lớn, giảm thiểu tối đa các rủi ro về ảo tưởng thông tin y khoa nguy hại.
-*   Cơ chế Human-in-the-Loop và Data Flywheel giúp hệ thống có khả năng tự học thực tế và làm giàu cơ sở tri thức liên tục.
-*   Hệ thống gọn nhẹ, dễ dàng cấu hình chạy ngoại tuyến (offline) nhờ thuật toán vector dự phòng mà không bị lỗi crash ứng dụng.
+*   **Kiểm soát ảo tưởng thông tin (Safety Guardrail):** Kiến trúc kết hợp Hệ chuyên gia và RAG giúp kiểm soát được đầu ra của mô hình ngôn ngữ lớn, giảm thiểu tối đa các rủi ro về ảo tưởng thông tin y khoa nguy hại bằng cách định tuyến dựa trên điểm tin cậy và chặn trước từ khóa nguy kịch.
+*   **Bánh đà dữ liệu (Data Flywheel) khép kín:** Cơ chế Human-in-the-Loop giúp hệ thống tự học từ đóng góp của chuyên gia y tế, nạp động các chunk vector mới trực tiếp vào ChromaDB mà không cần build lại toàn bộ cơ sở dữ liệu.
+*   **Khả năng dự phòng ngoại tuyến (Offline Resiliency):** Thuật toán băm từ vựng (Word-Level Hashing với djb2) và chuẩn hóa L2 tự thiết lập giúp hệ thống hoạt động ổn định ngoại tuyến ngay cả khi không có kết nối internet hoặc API Key.
+*   **Giao diện dòng lệnh (CLI) trực quan:** Sử dụng màu sắc ANSI (`colorama`) làm nổi bật các bước suy diễn logic của hệ chuyên gia (Explanation Facility), giúp nhà phát triển và bác sĩ dễ dàng theo dõi đường đi của dữ liệu.
 
-### 2. Định hướng nâng cấp tiếp theo
+### 2. Hạn chế hiện tại (Nhược điểm)
+*   **Hạn chế của thuật toán băm offline:** Thuật toán băm từ vựng (Word Hashing) giúp so khớp từ khóa offline tốt nhưng chưa hiểu được ngữ nghĩa sâu sắc (ví dụ: chưa nhận diện được các từ đồng nghĩa như "đau đầu" và "nhức đầu" nếu từ khóa không khớp trực tiếp).
+*   **Chưa tích hợp từ điển từ đồng nghĩa y khoa (Medical Thesaurus):** Hệ thống chưa thể tự động map các thuật ngữ y học dân gian sang thuật ngữ chuyên ngành khi so khớp từ khóa thô.
+*   **Chưa có cơ chế bảo mật và phân quyền:** Bất kỳ người dùng nào cũng có thể đóng vai Bác sĩ Trưởng khoa để nạp tri thức mới thông qua luồng Human-in-the-loop. Trong môi trường bệnh viện thực tế, điều này rất nguy hiểm và cần có phân quyền truy cập chặt chẽ (RBAC).
+*   **Hạ tầng CSDL Vector đơn nút (Single-node):** ChromaDB lưu trữ cục bộ dưới dạng persistent files hoạt động tốt cho quy mô nhỏ nhưng sẽ gặp nút thắt cổ chai về hiệu năng khi quy mô dữ liệu tăng lên hàng triệu tài liệu.
+*   **Thiếu công cụ đánh giá tự động (RAG Evaluation):** Hệ thống chưa tích hợp các framework đánh giá RAG tự động (như RAGAS, TruLens) để chấm điểm định lượng mức độ liên quan ngữ cảnh (context relevance), tính trung thực (faithfulness) và độ chính xác của câu trả lời.
+*   **Quy mô dữ liệu thử nghiệm nhỏ:** Số lượng phác đồ lâm sàng gốc mới chỉ dừng lại ở 10 bệnh lý đại diện, cần mở rộng quy mô dữ liệu để áp dụng thực tế.
+
+### 3. Định hướng nâng cấp tiếp theo
 *   **Tích hợp Semantic Embeddings cục bộ:** Thay vì sử dụng Hashing Vectorizer thô sơ làm dự phòng offline, hệ thống có thể tích hợp các mô hình embedding tiếng Việt nhỏ chạy trực tiếp trên CPU (như PhoBERT hoặc các mô hình Sentence-Transformers tiếng Việt) để so khớp ngữ nghĩa offline chính xác hơn.
+*   **Bổ sung từ điển đồng nghĩa (Synonyms/Thesaurus Mapping):** Xây dựng lớp tiền xử lý câu hỏi để tự động ánh xạ từ đồng nghĩa y khoa trước khi đưa vào bộ truy xuất.
 *   **Phân quyền chặt chẽ:** Xây dựng màn hình đăng nhập và xác thực (JWT Token). Chỉ những tài khoản bác sĩ đã qua kiểm duyệt chứng chỉ hành nghề mới được quyền phê duyệt và ghi đè phác đồ mới vào tệp `dataset.json`.
+*   **Chuyển đổi sang CSDL Vector phân tán:** Nâng cấp ChromaDB local lên giải pháp lưu trữ vector phân tán (như Qdrant hoặc PGVector) chạy độc lập qua Docker.
+*   **Tích hợp đánh giá định lượng bằng RAGAS:** Xây dựng module tự động sinh câu hỏi kiểm tra và đo lường định kỳ chất lượng RAG thông qua các chỉ số định lượng cụ thể.
 *   **Giao diện trực quan:** Đóng gói mã nguồn kết hợp API web của FastAPI và giao diện người dùng Web (UI Web) bằng Streamlit để bác sĩ có thể tương tác hỏi đáp và duyệt bệnh một cách dễ dàng và hiện đại hơn.
 
 ---
