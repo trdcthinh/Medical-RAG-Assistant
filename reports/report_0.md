@@ -122,33 +122,33 @@ graph LR
 
 Dưới đây là tập hợp hình ảnh chụp trực tiếp từ màn hình dòng lệnh CMD làm bằng chứng chạy thử nghiệm thực tế phục vụ báo cáo khoa học:
 
-### 📸 Hình 1: Khởi động hệ thống và Lập chỉ mục Vector lần đầu
-*Hệ thống tự phát hiện CSDL vector trống, nạp tệp phác đồ y tế lâm sàng gốc, chuyển qua bộ phân đoạn Chunker và băm vector nhúng để ghi nhận trực tiếp vào ChromaDB.*
-![Khởi động và lập chỉ mục CSDL Vector](images/demo_1.png)
+### 📸 Hình 1: Chatbot QA - So khớp câu hỏi Mụn cuống lưỡi (src/app.py)
+*Chatbot QA so khớp thành công câu hỏi của người dùng về mụn ở cuống lưỡi với độ tương đồng TF-IDF 0.8693.*
+![Khớp câu hỏi mụn cuống lưỡi app.py](images/demo_1.png)
 
 ---
 
-### 📸 Hình 2: Cơ chế so khớp và truy xuất phác đồ trực tiếp (RAG Direct)
-*Người dùng đặt câu hỏi có độ tin cậy cao trùng khớp với phác đồ đã số hóa (Triệu chứng sốt xuất huyết), hệ thống kích hoạt luồng trả lời trực tiếp.*
-![Luồng RAG trực tiếp độ tin cậy cao](images/demo_2.png)
+### 📸 Hình 2: Màng lọc kiểm duyệt an toàn - Luật Cảnh báo Khẩn cấp 1 (main.py)
+*Hệ chuyên gia phát hiện triệu chứng nguy kịch lâm sàng (Tôi bị co giật và khó thở), chặn luồng hỏi đáp thông thường và đưa ra cảnh báo đi cấp cứu 115.*
+![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 1](images/demo_2.png)
 
 ---
 
-### 📸 Hình 3: Cơ chế so khớp tương đồng trung bình
+### 📸 Hình 3: Cơ chế so khớp tương đồng trung bình (main.py)
 *Câu hỏi của người dùng có độ tương đồng ở mức trung bình (sát với ngưỡng lọc - bị sốt nổi mẩn đỏ), chatbot thực hiện truy xuất phác đồ liên quan gần nhất (Sốt rét).*
 ![So khớp tương đồng trung bình](images/demo_3.png)
 
 ---
 
-### 📸 Hình 4: Màng lọc kiểm duyệt an toàn - Luật Cảnh báo Khẩn cấp 1
-*Hệ chuyên gia phát hiện triệu chứng nguy kịch lâm sàng (Tôi bị co giật và khó thở), chặn luồng hỏi đáp thông thường và đưa ra cảnh báo đi cấp cứu 115.*
-![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 1](images/demo_4.png)
+### 📸 Hình 4: Chatbot QA - So khớp câu hỏi Phòng tránh cận thị (src/app.py)
+*Truy xuất thông tin phòng tránh cận thị học đường thông qua chỉ mục TF-IDF của chatbot phụ trợ.*
+![Khớp câu hỏi phòng tránh cận thị app.py](images/demo_4.png)
 
 ---
 
-### 📸 Hình 5: Màng lọc kiểm duyệt an toàn - Luật Cảnh báo Khẩn cấp 2
-*Thử nghiệm lại ca lâm sàng khẩn cấp để chứng minh tính nhất quán và độ an toàn tuyệt đối của bộ lọc an toàn.*
-![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 2](images/demo_5.png)
+### 📸 Hình 5: Chatbot QA - So khớp câu hỏi Đau răng (src/app.py)
+*Chạy thử nghiệm trên chatbot QA phụ trợ, hỏi đáp câu hỏi đau răng có mủ dưới lợi và truy xuất câu trả lời mẫu chính xác.*
+![Khớp câu hỏi đau răng app.py](images/demo_5.png)
 
 ---
 
@@ -158,21 +158,21 @@ Dưới đây là tập hợp hình ảnh chụp trực tiếp từ màn hình d
 
 ---
 
-### 📸 Hình 7: Chatbot QA - So khớp câu hỏi Đau răng (src/app.py)
-*Chạy thử nghiệm trên chatbot QA phụ trợ, hỏi đáp câu hỏi đau răng có mủ dưới lợi và truy xuất câu trả lời mẫu chính xác.*
-![Khớp câu hỏi đau răng app.py](images/demo_7.png)
+### 📸 Hình 7: Khởi động hệ thống và Lập chỉ mục Vector lần đầu (main.py)
+*Hệ thống tự phát hiện CSDL vector trống, nạp tệp phác đồ y tế lâm sàng gốc, chuyển qua bộ phân đoạn Chunker và băm vector nhúng để ghi nhận trực tiếp vào ChromaDB.*
+![Khởi động và lập chỉ mục CSDL Vector](images/demo_7.png)
 
 ---
 
-### 📸 Hình 8: Chatbot QA - So khớp câu hỏi Mụn cuống lưỡi (src/app.py)
-*Chatbot QA so khớp thành công câu hỏi của người dùng về mụn ở cuống lưỡi với độ tương đồng TF-IDF 0.8693.*
-![Khớp câu hỏi mụn cuống lưỡi app.py](images/demo_8.png)
+### 📸 Hình 8: Màng lọc kiểm duyệt an toàn - Luật Cảnh báo Khẩn cấp 2 (main.py)
+*Thử nghiệm lại ca lâm sàng khẩn cấp để chứng minh tính nhất quán và độ an toàn tuyệt đối của bộ lọc an toàn.*
+![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 2](images/demo_8.png)
 
 ---
 
-### 📸 Hình 9: Chatbot QA - So khớp câu hỏi Phòng tránh cận thị (src/app.py)
-*Truy xuất thông tin phòng tránh cận thị học đường thông qua chỉ mục TF-IDF của chatbot phụ trợ.*
-![Khớp câu hỏi phòng tránh cận thị app.py](images/demo_9.png)
+### 📸 Hình 9: Cơ chế so khớp và truy xuất phác đồ trực tiếp (RAG Direct - main.py)
+*Người dùng đặt câu hỏi có độ tin cậy cao trùng khớp với phác đồ đã số hóa (Triệu chứng sốt xuất huyết), hệ thống kích hoạt luồng trả lời trực tiếp.*
+![Luồng RAG trực tiếp độ tin cậy cao](images/demo_9.png)
 
 ---
 
