@@ -7,6 +7,15 @@ Hệ thống kết hợp ba trụ cột lý thuyết cốt lõi trong phòng ngh
 2.  **Hệ chuyên gia (Expert System)**: Đóng vai trò lớp kiểm duyệt an toàn (Safety Guardrail) thông qua các luật logic để định tuyến câu hỏi (nhận diện trường hợp khẩn cấp cấp cứu, phân luồng theo độ tin cậy của kết quả so khớp).
 3.  **Vòng lặp tự học & Can thiệp con người (Human-in-the-Loop & Data Flywheel)**: Cho phép Bác sĩ Trưởng khoa trực tiếp duyệt và bổ sung phác đồ điều trị mới cho các câu hỏi lạ, hệ thống sẽ tự động cập nhật cơ sở dữ liệu và nạp trực tiếp vector vào CSDL mà không cần khởi động lại.
 
+## 🌟 Tính năng nổi bật (Key Features)
+
+*   **Hệ thống Hybrid (RAG + Expert System):** Đóng vai trò lớp kiểm duyệt an toàn y khoa. Tự động chặn và định tuyến các câu hỏi khẩn cấp chuyển thẳng đến hướng dẫn cấp cứu 115 mà không đi qua AI.
+*   **Định tuyến theo độ tin cậy (Confidence Routing):** Phân luồng câu hỏi dựa trên điểm Cosine Similarity (tự động RAG trực tiếp, hỏi xác nhận bệnh lý, hoặc kích hoạt Human-in-the-loop).
+*   **Vòng lặp tự học khép kín (Data Flywheel):** Bác sĩ có thể duyệt và bổ sung trực tiếp phác đồ điều trị mới vào database dạng JSON và ChromaDB trực tiếp trong thời gian chạy (Runtime) mà không cần khởi động lại.
+*   **Dự phòng ngoại tuyến (Offline Fallback Embedder):** Khi không có internet hoặc API Key, hệ thống tự động kích hoạt thuật toán băm từ vựng (Word-Level Hashing với djb2) để tính tương đồng ngữ nghĩa cục bộ.
+*   **Chatbot QA TF-IDF phụ trợ:** Tích hợp thêm chatbot QA có lịch sử chat dài hơi (`src/app.py`) hoạt động hoàn toàn offline với cơ chế tính TF-IDF từ đầu.
+*   **Bộ kiểm thử tự động (Unit Test Suite):** Mã nguồn đi kèm các kịch bản unittest giúp kiểm chứng tính chính xác của module Loader, Chunker, và Embedder.
+
 ---
 
 ## 🏗️ 1. Cấu trúc Dự án (Project Structure)
@@ -90,71 +99,49 @@ python src/download_dataset.py
 python main.py
 ```
 
----
-
-## 📊 4. Hình ảnh và Nhật ký Chạy thử Thực tế (Console Demo Screenshots)
-
-Dưới đây là các vị trí chèn hình ảnh minh chứng chạy thử thực tế các chức năng của hệ thống Chatbot trợ lý y học để đưa vào báo cáo:
-
-### 📸 Hình 1: Chatbot QA - Khớp câu hỏi Mụn cuống lưỡi (src/app.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi về bị mụn ở cuống lưỡi đạt điểm tương đồng TF-IDF 0.8693.
-![Khớp câu hỏi mụn cuống lưỡi app.py](reports/images/demo_1.png)
+### Bước 5: Chạy thử nghiệm kiểm thử tự động (Unit Tests)
+Để đảm bảo các module hoạt động chính xác trước khi vận hành, hãy khởi chạy bộ kiểm thử tự động:
+```bash
+python tests/test_app.py
+```
 
 ---
 
-### 📸 Hình 2: Bộ lọc an toàn - Luật Cảnh báo Khẩn cấp 1 (main.py)
-*Hướng dẫn:* Lưu ảnh câu hỏi nguy kịch "Tôi bị co giật và khó thở", kích hoạt cảnh báo cấp cứu 115.
-![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 1](reports/images/demo_2.png)
+## 📊 4. Minh họa Hoạt động Lâm sàng (Console Demo Preview)
 
----
+Để tránh lặp lại toàn bộ hình ảnh đã được trình bày chi tiết trong báo cáo y khoa, phần này chỉ hiển thị **2 hình ảnh minh họa cốt lõi** đại diện cho khả năng vận hành của trợ lý:
 
-### 📸 Hình 3: So khớp tương đồng trung bình (main.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi bị sốt nổi mẩn đỏ, tự động khớp phác đồ Sốt rét có điểm số 0.33.
-![So khớp tương đồng trung bình](reports/images/demo_3.png)
-
----
-
-### 📸 Hình 4: Chatbot QA - Khớp câu hỏi Phòng tránh cận thị (src/app.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi về phòng tránh cận thị học đường đạt điểm tương đồng TF-IDF 0.6210.
-![Khớp câu hỏi phòng tránh cận thị app.py](reports/images/demo_4.png)
-
----
-
-### 📸 Hình 5: Chatbot QA - Khớp câu hỏi Đau răng (src/app.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi về đau răng có mủ dưới lợi đạt điểm tương đồng TF-IDF 0.8062.
-![Khớp câu hỏi đau răng app.py](reports/images/demo_5.png)
-
----
-
-### 📸 Hình 6: Bánh đà dữ liệu & Tự học bệnh lý mới (main.py)
-*Hướng dẫn:* Lưu ảnh quy trình nạp bệnh mới Thủy đậu và hỏi lại thành công trong cùng một phiên làm việc.
-![Bánh đà dữ liệu cập nhật động tri thức main.py](reports/images/demo_6.png)
-
----
-
-### 📸 Hình 7: Khởi động hệ thống và Lập chỉ mục lần đầu (main.py)
-*Hướng dẫn:* Lưu ảnh màn hình khởi động CSDL Vector ChromaDB với 30 chunks.
+### 📸 Hình A: Khởi động hệ thống & Lập chỉ mục Vector tự động (`main.py`)
+*Mô tả:* Hệ thống tự phát hiện cơ sở dữ liệu vector rỗng trong lần khởi chạy đầu tiên, tự động gọi loader, phân đoạn văn bản (chunking) và băm vector đẩy dữ liệu vào ChromaDB.
 ![Khởi động và lập chỉ mục CSDL Vector](reports/images/demo_7.png)
 
 ---
 
-### 📸 Hình 8: Bộ lọc an toàn - Luật Cảnh báo Khẩn cấp 2 (main.py)
-*Hướng dẫn:* Lưu ảnh câu hỏi khẩn cấp để kiểm chứng độ nhạy và thời gian phản hồi của hệ chuyên gia.
-![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 2](reports/images/demo_8.png)
-
----
-
-### 📸 Hình 9: Phản hồi RAG trực tiếp khi khớp phác đồ (main.py)
-*Hướng dẫn:* Lưu ảnh khi hỏi triệu chứng sốt xuất huyết, khớp bệnh Sốt xuất huyết Dengue có điểm số 0.55.
+### 📸 Hình B: Luồng xử lý RAG trực tiếp khi độ tin cậy cao (`main.py`)
+*Mô tả:* Người dùng hỏi thông tin có sẵn trong phác đồ, hệ chuyên gia phát hiện điểm tương đồng cao và định tuyến câu hỏi kết hợp ngữ cảnh RAG để LLM sinh câu trả lời chính xác.
 ![Luồng RAG trực tiếp độ tin cậy cao](reports/images/demo_9.png)
 
 ---
 
-### 📸 Hình 10: Chatbot QA - Bánh đà dữ liệu sơ cứu bỏng bô (src/app.py)
-*Hướng dẫn:* Lưu ảnh quy trình nạp tri thức sơ cứu bỏng bô xe máy, tự cập nhật dataset.json và hỏi lại đạt điểm 1.0000.
-![Bánh đà dữ liệu tự học app.py](reports/images/demo_10.png)
+### 📂 Danh mục đầy đủ 10 Hình ảnh chạy thử nghiệm lâm sàng (Xem trong Báo cáo)
+
+Tất cả 10 ảnh bằng chứng chạy thử (screenshots) đã được lưu trữ và mô tả chi tiết tại **Mục VII** của tệp báo cáo **[reports/report_0.md](file:///D:/rag_project/reports/report_0.md)**:
+
+| Mã Hình | Kịch bản thử nghiệm (Console flow) | Script thực thi | Vị trí trong Báo cáo |
+| :--- | :--- | :--- | :--- |
+| **Hình 1** | Hỏi đáp về mụn ở cuống lưỡi (TF-IDF) | `src/app.py` | Mục VII - Hình 1 |
+| **Hình 2** | Bộ lọc an toàn - Phát hiện co giật & khó thở (Cấp cứu 115) | `main.py` | Mục VII - Hình 2 |
+| **Hình 3** | Định tuyến tương đồng trung bình (Khớp phác đồ Sốt rét) | `main.py` | Mục VII - Hình 3 |
+| **Hình 4** | Hỏi đáp về phòng tránh cận thị học đường | `src/app.py` | Mục VII - Hình 4 |
+| **Hình 5** | Hỏi đáp về cách sơ cứu đau răng có mủ | `src/app.py` | Mục VII - Hình 5 |
+| **Hình 6** | Can thiệp con người (HITL) - Nạp động bệnh mới (Thủy đậu) | `main.py` | Mục VII - Hình 6 |
+| **Hình 7** | Khởi động hệ thống & Indexing lần đầu vào ChromaDB | `main.py` | Mục VII - Hình 7 |
+| **Hình 8** | Bộ lọc an toàn - Phát hiện triệu chứng khẩn cấp lần 2 | `main.py` | Mục VII - Hình 8 |
+| **Hình 9** | Định tuyến tương đồng cao - Trả lời qua RAG trực tiếp | `main.py` | Mục VII - Hình 9 |
+| **Hình 10**| Vòng lặp học tập tự động (Data Flywheel) - Sơ cứu bỏng bô | `src/app.py` | Mục VII - Hình 10 |
 
 ---
+
 
 ## 📝 5. Tài liệu Báo cáo chi tiết
 Để xem chi tiết hơn về cơ chế toán học TF-IDF, thuật toán Cosine Similarity, mô tả chi tiết vòng đời dữ liệu (CREATE - USED - UPDATE - DELETE) và các định hướng nâng cấp hệ thống, vui lòng truy cập:
