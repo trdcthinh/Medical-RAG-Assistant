@@ -22,22 +22,23 @@ rag_project/
 ├── main.py                    # Bộ điều phối trung tâm (Orchestrator) chạy ứng dụng CLI
 │
 ├── config/
-│   └── expert_rules.json       # Tập luật của hệ chuyên gia (từ khóa cấp cứu, các ngưỡng điểm số)
+│   └── expert_rules.json      # Tập luật của hệ chuyên gia (từ khóa cấp cứu, các ngưỡng điểm số)
 │
 ├── data/
-│   ├── dataset.json            # Cơ sở dữ liệu phác đồ lâm sàng gốc (JSON)
-│   └── chroma_db/              # Thư mục lưu trữ tệp cơ sở dữ liệu vector của ChromaDB
+│   ├── dataset.json           # Cơ sở dữ liệu phác đồ lâm sàng gốc (JSON)
+│   └── chroma_db/             # Thư mục lưu trữ tệp cơ sở dữ liệu vector của ChromaDB
+│
+├── logs/                      # Thư mục tự động ghi log lỗi vận hành
 │
 ├── reports/
 │   ├── report_0.md            # Báo cáo học tập dự án chi tiết (vòng đời dữ liệu, thuật toán...)
 │   └── images/                # Nơi lưu trữ hình ảnh chạy thử (screenshots) làm bằng chứng demo
-│       ├── demo_1.png
-│       ├── demo_2.png
-│       ├── demo_3.png
-│       └── demo_4.png
+│       └── demo_1.png -> demo_10.png (đầy đủ 10 ảnh chạy thử thực tế)
 │
 ├── src/                       # Thư mục chứa mã nguồn chính của các module
 │   ├── __init__.py
+│   ├── app.py                 # Chatbot QA phụ trợ có lịch sử chat (TF-IDF)
+│   ├── download_dataset.py    # Script tải dữ liệu y tế từ Hugging Face
 │   ├── ingestion/             # Load dữ liệu lâm sàng thô và chuẩn hóa tiếng Việt
 │   ├── chunking/              # Chia nhỏ tài liệu thành các khối thông tin kèm metadata
 │   ├── embeddings/            # Chuyển đổi văn bản thành vector (Gemini API hoặc Hashing Offline)
@@ -46,7 +47,9 @@ rag_project/
 │   ├── llm/                   # Quản lý kết nối và phiên làm việc với Google Gemini API
 │   ├── prompts/               # Tiêu bản câu lệnh chèn ngữ cảnh y khoa
 │   └── utils/                 # Các hàm bổ trợ đọc cấu hình, ghi log lỗi
+│
 └── tests/                     # Thư mục chứa kịch bản kiểm thử tự động
+    └── test_app.py            # Kịch bản Unit Test kiểm thử Loader, Chunker và Embedder
 ```
 
 ---

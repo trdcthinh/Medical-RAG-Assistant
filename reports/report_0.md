@@ -43,6 +43,8 @@ Dự án được tổ chức theo cấu trúc dạng module chuẩn hóa như s
 *   **`src/llm/llm_client.py` (Lớp `GeminiLLMClient`)**: Thiết lập và duy trì kết nối tới API sinh văn bản của Gemini, hỗ trợ linh hoạt cả 2 phiên bản thư viện cũ (`google-generativeai`) và mới (`google-genai`).
 *   **`src/utils/helpers.py`**: Các hàm tiện ích hỗ trợ đọc ghi file, log lỗi hệ thống, và khởi chạy thiết lập ban đầu.
 *   **`src/download_dataset.py`**: Script độc lập sử dụng thư viện chuẩn của Python (`urllib`) để kết nối API Hugging Face tải dữ liệu y tế tiếng Việt và lưu trực tiếp vào dự án.
+*   **`src/app.py`**: Ứng dụng chatbot hỏi đáp y khoa phụ trợ độc lập, tích hợp lịch sử trò chuyện (Chat History) sử dụng cơ chế truy xuất TF-IDF và tìm kiếm tương đồng Cosine Similarity tự triển khai.
+*   **`tests/test_app.py`**: Tập hợp các kịch bản kiểm thử tự động (Unit Tests) sử dụng thư viện `unittest` tiêu chuẩn để kiểm chứng độ chính xác của Module Loader, Chunker và Embedder Fallback.
 
 ---
 
