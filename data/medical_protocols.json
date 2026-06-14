@@ -16,8 +16,57 @@
   {
     "id": 3,
     "disease": "Cúm A",
-    "symptoms": "Sốt cao trên 38 độ C, đau họng, ho khan, nhức mỏi toàn thân, nhức đầu, mệt mỏi kéo dài. Nghẹt mũi, chảy nước mũi.",
+    "symptoms": "Sốt cao trên 38 độ C, ho khan, nhức mỏi toàn thân, nhức đầu, mệt mỏi kéo dài. Nghẹt mũi, chảy nước mũi.",
     "treatment": "1) Nghỉ ngơi tại nơi thông thoáng, uống nhiều nước ấm. 2) Điều trị triệu chứng: Hạ sốt bằng Paracetamol, dùng thuốc ho thảo dược, rửa mũi bằng nước muối sinh lý. 3) Dùng thuốc kháng virus Oseltamivir (Tamiflu) trong vòng 48 giờ đầu chỉ khi có chỉ định của bác sĩ đối với ca có nguy cơ biến chứng nặng.",
     "warning_signs": "Khó thở, thở nhanh, tức ngực, tím tái đầu chi, sốt cao liên tục không đáp ứng với thuốc hạ sốt thông thường."
+  },
+  {
+    "id": 4,
+    "disease": "Đái tháo đường Type 2",
+    "symptoms": "Ăn nhiều, uống nhiều, tiểu nhiều, sụt cân nhiều không rõ nguyên nhân. Mệt mỏi, mờ mắt, vết thương lâu lành.",
+    "treatment": "1) Kiểm soát chế độ ăn: Hạn chế tinh bột tinh chế, đồ ngọt, chia nhỏ bữa ăn. 2) Luyện tập thể lực: Tối thiểu 150 phút/tuần. 3) Dùng thuốc uống kiểm soát đường huyết (như Metformin) hoặc tiêm Insulin theo đúng phác đồ của bác sĩ chuyên khoa nội tiết.",
+    "warning_signs": "Mệt mỏi cực độ, thở nhanh sâu, hơi thở có mùi trái cây chín (toan ceton), hoặc co giật, lơ mơ do hạ đường huyết (< 3.9 mmol/L)."
+  },
+  {
+    "id": 5,
+    "disease": "Hen suyễn (Hen phế quản)",
+    "symptoms": "Khó thở thở ra, khò khè nghe rõ, ho khan nhiều (thường xuất hiện về đêm hoặc khi thay đổi thời tiết), nặng ngực.",
+    "treatment": "1) Tránh các yếu tố kích ứng: Bụi nhà, lông thú, phấn hoa, khói thuốc. 2) Cắt cơn hen cấp: Xịt thuốc giãn phế quản tác dụng nhanh (như Salbutamol/Ventolin). 3) Điều trị dự phòng dài hạn: Dùng Corticoid dạng hít (ICS) hàng ngày theo chỉ dẫn của bác sĩ.",
+    "warning_signs": "Cơn khó thở dữ dội không đáp ứng với thuốc cắt cơn sau 2 lần xịt, nói chuyện khó khăn (chỉ nói được từng từ), tím tái môi."
+  },
+  {
+    "id": 6,
+    "disease": "Viêm loét dạ dày tá tràng",
+    "symptoms": "Đau vùng thượng vị (đau âm ỉ hoặc bỏng rát, đau khi đói hoặc ngay sau khi ăn), đầy bụng, khó tiêu, ợ chua, buồn nôn.",
+    "treatment": "1) Chế độ ăn uống: Tránh đồ chua, cay, nóng, rượu bia, cà phê. Tránh căng thẳng thần kinh. 2) Thuốc điều trị: Thuốc ức chế bơm Proton (PPI như Omeprazole), thuốc kháng acid (antacid), thuốc bảo vệ niêm mạc. 3) Diệt vi khuẩn H.pylori bằng kháng sinh phối hợp nếu xét nghiệm dương tính.",
+    "warning_signs": "Đau bụng dữ dội đột ngột (nghi thủng dạ dày), nôn ra máu, đi ngoài phân đen như nhựa đường (xuất huyết tiêu hóa)."
+  },
+  {
+    "id": 7,
+    "disease": "Đột quỵ não (Tai biến mạch máu não)",
+    "symptoms": "Mất thăng bằng đột ngột, đau đầu dữ dội, hoa mắt chóng mặt. Yếu, tê hoặc liệt một bên mặt hoặc tay chân. Nói ngọng, khó nói hoặc không hiểu lời nói.",
+    "treatment": "1) Tuyệt đối KHÔNG tự ý cho uống thuốc, KHÔNG bấm huyệt, cạo gió. 2) Ghi nhớ thời gian khởi phát triệu chứng. 3) Nhanh chóng đưa đến bệnh viện có trung tâm đột quỵ để dùng thuốc tiêu sợi huyết (trong vòng 4.5 giờ đầu) hoặc can thiệp lấy huyết khối bằng dụng cụ cơ học.",
+    "warning_signs": "Bất kỳ dấu hiệu nào của quy tắc FAST: F (Mặt lệch), A (Yếu tay chân), S (Nói khó), T (Thời gian gọi cấp cứu ngay lập tức)."
+  },
+  {
+    "id": 8,
+    "disease": "Sốt rét",
+    "symptoms": "Cơn sốt điển hình qua 3 giai đoạn: Rét run (30 phút - 2 giờ) -> Sốt nóng (2-6 giờ, sốt cao đến 40-41 độ C) -> Vã mồ hôi. Nhức đầu, nhức mỏi cơ toàn thân.",
+    "treatment": "1) Xét nghiệm máu tìm ký sinh trùng sốt rét (Plasmodium). 2) Dùng thuốc đặc trị sốt rét: Artesunate hoặc phối hợp thuốc nhóm Artemisinine (ACT) theo đúng phác đồ của Bộ Y tế. 3) Hạ sốt và bù dịch chống mất nước.",
+    "warning_signs": "Rối loạn tâm thần, lơ mơ, hôn mê (sốt rét ác tính thể não), sốt cao liên tục không hạ, nước tiểu màu đỏ sẫm hoặc đen."
+  },
+  {
+    "id": 9,
+    "disease": "Viêm phổi",
+    "symptoms": "Ho kèm đờm đặc (màu vàng, xanh hoặc rỉ sắt), sốt cao, rét run, khó thở nhẹ đến vừa, đau ngực khi ho hoặc thở sâu. Mệt mỏi, chán ăn.",
+    "treatment": "1) Dùng thuốc kháng sinh theo chỉ định của bác sĩ (thường bắt đầu bằng nhóm Beta-lactam hoặc Macrolide). 2) Giảm ho, loãng đờm bằng thuốc hỗ trợ. 3) Uống nhiều nước ấm, nghỉ ngơi hợp lý. Hỗ trợ thở oxy nếu có suy hô hấp.",
+    "warning_signs": "Khó thở tăng dần, nhịp thở nhanh (> 30 lần/phút), môi đầu chi tím tái, lơ mơ, tụt huyết áp."
+  },
+  {
+    "id": 10,
+    "disease": "Ngộ độc thực phẩm",
+    "symptoms": "Đau bụng quặn thắt, buồn nôn, nôn mửa liên tục, tiêu chảy phân lỏng nhiều lần trong ngày, có thể sốt nhẹ hoặc sốt cao.",
+    "treatment": "1) Ngừng ngay thực phẩm nghi ngờ. 2) Bù nước và điện giải là quan trọng nhất: Uống Oresol từng ngụm nhỏ. 3) KHÔNG tự ý uống thuốc cầm tiêu chảy vì cần để cơ thể đào thải độc tố ra ngoài. 4) Dùng kháng sinh khi có nhiễm khuẩn ruột nặng theo chỉ định.",
+    "warning_signs": "Nôn ói nhiều không thể uống nước, tiêu chảy phân máu, sốt cao liên tục, dấu hiệu mất nước nặng (mắt trũng, da nhăn nheo, tiểu ít)."
   }
 ]
