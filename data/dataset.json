@@ -2326,5 +2326,24 @@
     "keywords": [
       "admin"
     ]
+  },
+  {
+    "id": 103,
+    "question": "Làm sao để sơ cứu khi bị bỏng bô xe máy",
+    "answer": "Rửa vết bỏng dưới vòi nước mát sạch khoảng 15-20 phút, sau đó băng nhẹ bằng gạc sạch, tuyệt đối không bôi kem đánh răng.",
+    "category": "Expert Input",
+    "keywords": [
+      "làm",
+      "sao",
+      "để",
+      "sơ",
+      "cứu",
+      "khi",
+      "bị",
+      "bỏng",
+      "bô",
+      "xe",
+      "máy"
+    ]
   }
 ]

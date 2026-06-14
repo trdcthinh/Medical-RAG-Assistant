@@ -53,11 +53,32 @@ class MedicalEmbedder:
                 pass
         
         # ⚠️ CHẾ ĐỘ FALLBACK OFFLINE (Chạy khi không có internet/API Key)
-        # Chúng ta tạo một thuật toán băm ký tự (Hashing Vectorizer) để tự sinh vector 768 chiều.
-        # Điều này giúp hệ thống chạy mượt mà ngay cả khi offline mà không bị crash.
+        # Sử dụng thuật toán băm từ vựng (Word-Level Hashing với djb2) kết hợp loại bỏ từ dừng (Stopwords)
+        # để tránh việc các từ chung chung (bệnh, điều trị, bác sĩ...) làm nhiễu điểm số tương đồng.
+        import re
+        words = re.findall(r'\w+', text.lower())
         vector = [0.0] * 768
-        for i, char in enumerate(text):
-            vector[i % 768] += ord(char)
+        
+        # Danh sách từ dừng/từ cấu trúc cần loại bỏ
+        STOPWORDS = {
+            "bệnh", "lý", "nội", "dung", "là", "và", "của", "để", "trong", "có", 
+            "thế", "nào", "chữa", "triệu", "chứng", "phác", "đồ", "điều", "trị", 
+            "cảnh", "báo", "dấu", "hiệu", "lâm", "sàng", "nguy", "hiểm", "bác", 
+            "sĩ", "cho", "hỏi", "tôi", "em", "cháu", "bị", "những", "các", "như"
+        }
+        
+        def djb2_hash(s):
+            h = 5381
+            for c in s:
+                h = ((h << 5) + h) + ord(c)
+            return h & 0xFFFFFFFF
+
+        for word in words:
+            if word in STOPWORDS:
+                continue
+            idx = djb2_hash(word) % 768
+            vector[idx] += 1.0
+
         # Chuẩn hóa vector về độ dài đơn vị (L2 Normalization)
         magnitude = sum(x**2 for x in vector)**0.5
         if magnitude > 0:

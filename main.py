@@ -122,7 +122,10 @@ class MedicalRAGApp:
                 history=history_str,
                 query=user_query
             )
-            answer = self.llm.generate_answer(prompt, system_instruction=SYSTEM_INSTRUCTION)
+            if self.llm.is_active:
+                answer = self.llm.generate_answer(prompt, system_instruction=SYSTEM_INSTRUCTION)
+            else:
+                answer = f"{Fore.YELLOW}[CHẾ ĐỘ OFFLINE - TRUY XUẤT PHÁC ĐỒ GỐC CSDL]{Style.RESET_ALL}\n{context_str}"
             route = "RAG_DIRECT"
             
         # Phác đồ khớp vừa -> Hỏi xác nhận thông tin bệnh

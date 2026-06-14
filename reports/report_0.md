@@ -115,3 +115,69 @@ graph LR
 *   **Tích hợp Semantic Embeddings cục bộ:** Thay vì sử dụng Hashing Vectorizer thô sơ làm dự phòng offline, hệ thống có thể tích hợp các mô hình embedding tiếng Việt nhỏ chạy trực tiếp trên CPU (như PhoBERT hoặc các mô hình Sentence-Transformers tiếng Việt) để so khớp ngữ nghĩa offline chính xác hơn.
 *   **Phân quyền chặt chẽ:** Xây dựng màn hình đăng nhập và xác thực (JWT Token). Chỉ những tài khoản bác sĩ đã qua kiểm duyệt chứng chỉ hành nghề mới được quyền phê duyệt và ghi đè phác đồ mới vào tệp `dataset.json`.
 *   **Giao diện trực quan:** Đóng gói mã nguồn kết hợp API web của FastAPI và giao diện người dùng Web (UI Web) bằng Streamlit để bác sĩ có thể tương tác hỏi đáp và duyệt bệnh một cách dễ dàng và hiện đại hơn.
+
+---
+
+## VII. Nhật ký chạy thử lâm sàng thực tế (Console Demo Screenshots)
+
+Dưới đây là tập hợp hình ảnh chụp trực tiếp từ màn hình dòng lệnh CMD làm bằng chứng chạy thử nghiệm thực tế phục vụ báo cáo khoa học:
+
+### 📸 Hình 1: Khởi động hệ thống và Lập chỉ mục Vector lần đầu
+*Hệ thống tự phát hiện CSDL vector trống, nạp tệp phác đồ y tế lâm sàng gốc, chuyển qua bộ phân đoạn Chunker và băm vector nhúng để ghi nhận trực tiếp vào ChromaDB.*
+![Khởi động và lập chỉ mục CSDL Vector](images/demo_1.png)
+
+---
+
+### 📸 Hình 2: Cơ chế so khớp và truy xuất phác đồ trực tiếp (RAG Direct)
+*Người dùng đặt câu hỏi có độ tin cậy cao trùng khớp với phác đồ đã số hóa (Triệu chứng sốt xuất huyết), hệ thống kích hoạt luồng trả lời trực tiếp.*
+![Luồng RAG trực tiếp độ tin cậy cao](images/demo_2.png)
+
+---
+
+### 📸 Hình 3: Cơ chế so khớp tương đồng trung bình
+*Câu hỏi của người dùng có độ tương đồng ở mức trung bình (sát với ngưỡng lọc - bị sốt nổi mẩn đỏ), chatbot thực hiện truy xuất phác đồ liên quan gần nhất (Sốt rét).*
+![So khớp tương đồng trung bình](images/demo_3.png)
+
+---
+
+### 📸 Hình 4: Màng lọc kiểm duyệt an toàn - Luật Cảnh báo Khẩn cấp 1
+*Hệ chuyên gia phát hiện triệu chứng nguy kịch lâm sàng (Tôi bị co giật và khó thở), chặn luồng hỏi đáp thông thường và đưa ra cảnh báo đi cấp cứu 115.*
+![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 1](images/demo_4.png)
+
+---
+
+### 📸 Hình 5: Màng lọc kiểm duyệt an toàn - Luật Cảnh báo Khẩn cấp 2
+*Thử nghiệm lại ca lâm sàng khẩn cấp để chứng minh tính nhất quán và độ an toàn tuyệt đối của bộ lọc an toàn.*
+![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 2](images/demo_5.png)
+
+---
+
+### 📸 Hình 6: Can thiệp con người & Vòng lặp học tập tự động (Data Flywheel - main.py)
+*Khi gặp bệnh lý hoàn toàn mới (Thủy đậu), hệ thống ghi nhận đóng góp từ chuyên gia lâm sàng, cập nhật động vector và tự động nhận diện ở lượt hỏi tiếp theo.*
+![Bánh đà dữ liệu cập nhật động tri thức main.py](images/demo_6.png)
+
+---
+
+### 📸 Hình 7: Chatbot QA - So khớp câu hỏi Đau răng (src/app.py)
+*Chạy thử nghiệm trên chatbot QA phụ trợ, hỏi đáp câu hỏi đau răng có mủ dưới lợi và truy xuất câu trả lời mẫu chính xác.*
+![Khớp câu hỏi đau răng app.py](images/demo_7.png)
+
+---
+
+### 📸 Hình 8: Chatbot QA - So khớp câu hỏi Mụn cuống lưỡi (src/app.py)
+*Chatbot QA so khớp thành công câu hỏi của người dùng về mụn ở cuống lưỡi với độ tương đồng TF-IDF 0.8693.*
+![Khớp câu hỏi mụn cuống lưỡi app.py](images/demo_8.png)
+
+---
+
+### 📸 Hình 9: Chatbot QA - So khớp câu hỏi Phòng tránh cận thị (src/app.py)
+*Truy xuất thông tin phòng tránh cận thị học đường thông qua chỉ mục TF-IDF của chatbot phụ trợ.*
+![Khớp câu hỏi phòng tránh cận thị app.py](images/demo_9.png)
+
+---
+
+### 📸 Hình 10: Chatbot QA - Vòng lặp học tập sơ cứu bỏng bô (src/app.py)
+*Chứng minh tính năng Data Flywheel trên chatbot QA khi chuyên gia nạp tri thức về sơ cứu bỏng bô xe máy, hệ thống tự động học và ghi nhận.*
+![Bánh đà dữ liệu tự học app.py](images/demo_10.png)
+
+---

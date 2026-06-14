@@ -91,33 +91,65 @@ python main.py
 
 ## 📊 4. Hình ảnh và Nhật ký Chạy thử Thực tế (Console Demo Screenshots)
 
-Để chứng minh các tính năng của chatbot hoạt động ổn định và chính xác mà không cần bắt buộc phải tải code về cấu hình chạy thử, dưới đây là hình ảnh chụp trực tiếp từ màn hình dòng lệnh CMD khi chạy ứng dụng:
+Dưới đây là các vị trí chèn hình ảnh minh chứng chạy thử thực tế các chức năng của hệ thống Chatbot trợ lý y học để đưa vào báo cáo:
 
-### 📸 Hình 1: Khởi chạy và Thử nghiệm RAG Direct (Khớp trực tiếp)
-Hệ thống tự động lập chỉ mục CSDL Vector lần đầu và nạp 100 bản ghi vào ChromaDB. Khi hỏi về triệu chứng nổi mụn cuống lưỡi hoặc đau răng có mủ, điểm tương đồng đạt mức tuyệt đối (1.0000) và mức cao (0.8681), kích hoạt luật `RULE_HIGH_CONFIDENCE` để trả lời trực tiếp phác đồ.
-
-![Khởi chạy và RAG Direct](reports/images/demo_2.png)
-
----
-
-### 📸 Hình 2: Demo tính năng Tự học (Human-in-the-Loop & Data Flywheel)
-Khi người dùng hỏi câu hỏi lạ: *"Bệnh sốt xuất huyết lây qua đường nào hả bác sĩ?"* nhưng cơ sở dữ liệu chưa có, điểm tương đồng thấp (0.4186) $\rightarrow$ Kích hoạt `HUMAN_IN_THE_LOOP`. Hệ thống hỏi ý kiến chuyên gia $\rightarrow$ Bác sĩ Trưởng khoa gõ phác đồ chuẩn $\rightarrow$ Hệ thống tự lưu vào `dataset.json` và cập nhật trực tiếp vào cơ sở dữ liệu vector ChromaDB.
-
-![Luồng Tự học](reports/images/demo_4.png)
+### 📸 Hình 1: Khởi động hệ thống và Lập chỉ mục lần đầu (main.py)
+*Hướng dẫn:* Lưu ảnh màn hình khởi động CSDL Vector ChromaDB với 30 chunks.
+![Khởi động và lập chỉ mục CSDL Vector](reports/images/demo_1.png)
 
 ---
 
-### 📸 Hình 3: Demo tính năng Xác nhận lại câu hỏi (RAG Confirmation)
-Khi người dùng gõ câu hỏi lệch ngữ cảnh khá nhiều: *"Chào bác sĩ, tôi bị mấy con muỗi đốt có thể dẫn đến bệnh gì?"*, điểm số so khớp tương đồng đạt mức trung bình (0.5864) $\rightarrow$ Kích hoạt `RAG_CONFIRMATION`. Chatbot hỏi xác nhận lại ý định hỏi của người dùng trước khi truy xuất câu trả lời cụ thể.
-
-![Hỏi xác nhận](reports/images/demo_1.png)
+### 📸 Hình 2: Phản hồi RAG trực tiếp khi khớp phác đồ (main.py)
+*Hướng dẫn:* Lưu ảnh khi hỏi triệu chứng sốt xuất huyết, khớp bệnh Sốt xuất huyết Dengue có điểm số 0.55.
+![Luồng RAG trực tiếp độ tin cậy cao](reports/images/demo_2.png)
 
 ---
 
-### 📸 Hình 4: Demo giao diện thêm dữ liệu của Quản trị viên (Admin Interface)
-Khi gõ từ khóa `admin` hoặc `quản trị`, bộ định tuyến kích hoạt luật cứng `RULE_FORCE_ADMIN` để dẫn người dùng trực tiếp vào giao diện thêm dữ liệu bệnh lý lâm sàng mới bằng tay.
+### 📸 Hình 3: So khớp tương đồng trung bình (main.py)
+*Hướng dẫn:* Lưu ảnh khi hỏi bị sốt nổi mẩn đỏ, tự động khớp phác đồ Sốt rét có điểm số 0.33.
+![So khớp tương đồng trung bình](reports/images/demo_3.png)
 
-![Giao diện Admin](reports/images/demo_3.png)
+---
+
+### 📸 Hình 4: Bộ lọc an toàn - Luật Cảnh báo Khẩn cấp 1 (main.py)
+*Hướng dẫn:* Lưu ảnh câu hỏi nguy kịch "Tôi bị co giật và khó thở", kích hoạt cảnh báo cấp cứu 115.
+![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 1](reports/images/demo_4.png)
+
+---
+
+### 📸 Hình 5: Bộ lọc an toàn - Luật Cảnh báo Khẩn cấp 2 (main.py)
+*Hướng dẫn:* Lưu ảnh câu hỏi khẩn cấp để kiểm chứng độ nhạy và thời gian phản hồi của hệ chuyên gia.
+![Bộ lọc an toàn cảnh báo cấp cứu 115 lần 2](reports/images/demo_5.png)
+
+---
+
+### 📸 Hình 6: Bánh đà dữ liệu & Tự học bệnh lý mới (main.py)
+*Hướng dẫn:* Lưu ảnh quy trình nạp bệnh mới Thủy đậu và hỏi lại thành công trong cùng một phiên làm việc.
+![Bánh đà dữ liệu cập nhật động tri thức main.py](reports/images/demo_6.png)
+
+---
+
+### 📸 Hình 7: Chatbot QA - Khớp câu hỏi Đau răng (src/app.py)
+*Hướng dẫn:* Lưu ảnh khi hỏi về đau răng có mủ dưới lợi đạt điểm tương đồng TF-IDF 0.8062.
+![Khớp câu hỏi đau răng app.py](reports/images/demo_7.png)
+
+---
+
+### 📸 Hình 8: Chatbot QA - Khớp câu hỏi Mụn cuống lưỡi (src/app.py)
+*Hướng dẫn:* Lưu ảnh khi hỏi về bị mụn ở cuống lưỡi đạt điểm tương đồng TF-IDF 0.8693.
+![Khớp câu hỏi mụn cuống lưỡi app.py](reports/images/demo_8.png)
+
+---
+
+### 📸 Hình 9: Chatbot QA - Khớp câu hỏi Phòng tránh cận thị (src/app.py)
+*Hướng dẫn:* Lưu ảnh khi hỏi về phòng tránh cận thị học đường đạt điểm tương đồng TF-IDF 0.6210.
+![Khớp câu hỏi phòng tránh cận thị app.py](reports/images/demo_9.png)
+
+---
+
+### 📸 Hình 10: Chatbot QA - Bánh đà dữ liệu sơ cứu bỏng bô (src/app.py)
+*Hướng dẫn:* Lưu ảnh quy trình nạp tri thức sơ cứu bỏng bô xe máy, tự cập nhật dataset.json và hỏi lại đạt điểm 1.0000.
+![Bánh đà dữ liệu tự học app.py](reports/images/demo_10.png)
 
 ---
 

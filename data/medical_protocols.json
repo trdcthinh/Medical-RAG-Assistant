@@ -68,5 +68,12 @@
     "symptoms": "Đau bụng quặn thắt, buồn nôn, nôn mửa liên tục, tiêu chảy phân lỏng nhiều lần trong ngày, có thể sốt nhẹ hoặc sốt cao.",
     "treatment": "1) Ngừng ngay thực phẩm nghi ngờ. 2) Bù nước và điện giải là quan trọng nhất: Uống Oresol từng ngụm nhỏ. 3) KHÔNG tự ý uống thuốc cầm tiêu chảy vì cần để cơ thể đào thải độc tố ra ngoài. 4) Dùng kháng sinh khi có nhiễm khuẩn ruột nặng theo chỉ định.",
     "warning_signs": "Nôn ói nhiều không thể uống nước, tiêu chảy phân máu, sốt cao liên tục, dấu hiệu mất nước nặng (mắt trũng, da nhăn nheo, tiểu ít)."
+  },
+  {
+    "id": 11,
+    "disease": "Thủy đậu",
+    "symptoms": "Nổi mụn nước",
+    "treatment": "Bôi hồ nước, cách ly",
+    "warning_signs": "Sốt cao co giật"
   }
 ]
